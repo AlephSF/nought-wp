@@ -86,3 +86,36 @@ $breakpoints: (
     grid-column-end: $colEnd;
   }
 }
+
+@mixin container {
+  width: 100%;
+  max-width: $container-width + ($container-padding * 2);
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+
+  @include breakpoint(md-down) {
+    padding-right: $container-padding-mobile;
+    padding-left: $container-padding-mobile;
+  }
+
+  @include breakpoint(sm-down) {
+    padding-right: $container-padding-mobile;
+    padding-left: $container-padding-mobile;
+  }
+
+  .container & {
+    max-width: unset;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.container {
+  @include container;
+}
+
+.grid {
+  @include makeGrid;
+}
