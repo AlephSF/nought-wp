@@ -29,6 +29,7 @@ class ComposerStaticInit1154cb251a3b9a9e45a7eee3e953f112
         ),
         'P' => 
         array (
+            'PivvenIT\\Composer\\Installers\\ACFPro\\' => 36,
             'PhpOption\\' => 10,
         ),
         'G' => 
@@ -73,6 +74,10 @@ class ComposerStaticInit1154cb251a3b9a9e45a7eee3e953f112
         'Roots\\Bedrock\\' => 
         array (
             0 => __DIR__ . '/..' . '/roots/bedrock-autoloader/src',
+        ),
+        'PivvenIT\\Composer\\Installers\\ACFPro\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src',
         ),
         'PhpOption\\' => 
         array (
@@ -245,6 +250,30 @@ class ComposerStaticInit1154cb251a3b9a9e45a7eee3e953f112
         'PhpOption\\None' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/None.php',
         'PhpOption\\Option' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Option.php',
         'PhpOption\\Some' => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption/Some.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\ACFProInstallerPlugin' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/ACFProInstallerPlugin.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\DownloadMatcher' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/DownloadMatcher.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\DownloadMatcherInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/DownloadMatcherInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\BackwardsCompatibleDownloadInterceptorFactory' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/BackwardsCompatibleDownloadInterceptorFactory.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\ComposerV1DownloadInterceptor' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/ComposerV1DownloadInterceptor.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\ComposerV2DownloadInterceptor' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/ComposerV2DownloadInterceptor.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\DownloadInterceptorFactoryInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/DownloadInterceptorFactoryInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\DownloadInterceptorInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/DownloadInterceptorInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Download\\Interceptor\\RewriteUrlRemoteFilesystem' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Download/Interceptor/RewriteUrlRemoteFilesystem.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\Exceptions\\MissingKeyException' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/Exceptions/MissingKeyException.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Appenders\\UrlLicenseKeyAppender' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Appenders/UrlLicenseKeyAppender.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Appenders\\UrlLicenseKeyAppenderInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Appenders/UrlLicenseKeyAppenderInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\ComposerConfigLicenseKeyProvider' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/ComposerConfigLicenseKeyProvider.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\CompositeLicenseKeyProvider' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/CompositeLicenseKeyProvider.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DefaultLicenseKeyProviderFactory' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DefaultLicenseKeyProviderFactory.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvAdapterFactory' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvAdapterFactory.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvAdapterInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvAdapterInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvLicenseKeyProvider' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvLicenseKeyProvider.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvV3Adapter' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvV3Adapter.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvV4Adapter' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvV4Adapter.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\DotEnv\\DotEnvV5Adapter' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/DotEnv/DotEnvV5Adapter.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\EnvironmentVariableLicenseKeyProvider' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/EnvironmentVariableLicenseKeyProvider.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\LicenseKeyProviderFactoryInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/LicenseKeyProviderFactoryInterface.php',
+        'PivvenIT\\Composer\\Installers\\ACFPro\\LicenseKey\\Providers\\LicenseKeyProviderInterface' => __DIR__ . '/..' . '/pivvenit/acf-pro-installer/src/LicenseKey/Providers/LicenseKeyProviderInterface.php',
         'Roots\\Bedrock\\Autoloader' => __DIR__ . '/..' . '/roots/bedrock-autoloader/src/Autoloader.php',
         'Roots\\Composer\\WordPressCoreInstaller' => __DIR__ . '/..' . '/roots/wordpress-core-installer/src/WordPressCoreInstaller.php',
         'Roots\\Composer\\WordPressCorePlugin' => __DIR__ . '/..' . '/roots/wordpress-core-installer/src/WordPressCorePlugin.php',

@@ -12,6 +12,7 @@ return array(
     'Roots\\WPConfig\\' => array($vendorDir . '/roots/wp-config/src'),
     'Roots\\Composer\\' => array($vendorDir . '/roots/wordpress-core-installer/src'),
     'Roots\\Bedrock\\' => array($vendorDir . '/roots/bedrock-autoloader/src'),
+    'PivvenIT\\Composer\\Installers\\ACFPro\\' => array($vendorDir . '/pivvenit/acf-pro-installer/src'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src/PhpOption'),
     'GrahamCampbell\\ResultType\\' => array($vendorDir . '/graham-campbell/result-type/src'),
     'Env\\' => array($vendorDir . '/oscarotero/env/src'),

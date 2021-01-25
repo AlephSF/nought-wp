@@ -1,5 +1,41 @@
 [
     {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.9.4",
+        "version_normalized": "5.9.4.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://connect.advancedcustomfields.com/v2/plugins/download?p=pro&t=5.9.4"
+        },
+        "require": {
+            "composer/installers": "~1.0",
+            "pivvenit/acf-pro-installer": "^2.4.0 || ^3.0"
+        },
+        "type": "wordpress-muplugin",
+        "installation-source": "dist",
+        "license": [
+            "GPL-2.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Elliot Condon",
+                "homepage": "http://www.elliotcondon.com",
+                "role": "Maintainer"
+            },
+            {
+                "name": "PivvenIT",
+                "homepage": "https://pivvenit.nl",
+                "role": "Composer Repository maintainer"
+            }
+        ],
+        "description": "Advanced Custom Fields PRO",
+        "homepage": "https://www.advancedcustomfields.com/",
+        "support": {
+            "docs": "https://www.advancedcustomfields.com/resources/",
+            "forum": "https://support.advancedcustomfields.com/topics/"
+        }
+    },
+    {
         "name": "composer/installers",
         "version": "v1.10.0",
         "version_normalized": "1.10.0.0",
@@ -292,6 +328,72 @@
             "option",
             "php",
             "type"
+        ]
+    },
+    {
+        "name": "pivvenit/acf-pro-installer",
+        "version": "3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pivvenit/acf-pro-installer.git",
+            "reference": "abf40927ed6f4596700ca35450d1d16e49426222"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pivvenit/acf-pro-installer/zipball/abf40927ed6f4596700ca35450d1d16e49426222",
+            "reference": "abf40927ed6f4596700ca35450d1d16e49426222",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.1||^2.0",
+            "ext-json": "*",
+            "php": "^7.3||^8.0",
+            "vlucas/phpdotenv": "^3.0 || ^4.0 || ^5.0"
+        },
+        "replace": {
+            "philippbaschke/acf-pro-installer": "1.0.2"
+        },
+        "require-dev": {
+            "composer/composer": "^1.0|| ^2.0",
+            "php-parallel-lint/php-parallel-lint": "^1.2.0",
+            "phpstan/phpstan": "^0.12.14",
+            "phpunit/phpunit": "^9.0",
+            "rregeer/phpunit-coverage-check": "^0.3.1",
+            "squizlabs/php_codesniffer": "^3.4",
+            "symfony/process": "^5.1"
+        },
+        "time": "2020-11-21T14:21:09+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "PivvenIT\\Composer\\Installers\\ACFPro\\ACFProInstallerPlugin",
+            "plugin-modifies-downloads": true
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PivvenIT\\Composer\\Installers\\ACFPro\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PivvenIT",
+                "homepage": "https://pivvenit.nl"
+            }
+        ],
+        "description": "A modern maintained install helper for Advanced Custom Fields PRO",
+        "keywords": [
+            "acf",
+            "composer",
+            "env",
+            "plugin",
+            "pro",
+            "wordpress",
+            "wp"
         ]
     },
     {
@@ -1182,5 +1284,65 @@
             "env",
             "environment"
         ]
+    },
+    {
+        "name": "wpackagist-plugin/postmark-approved-wordpress-plugin",
+        "version": "1.13.3",
+        "version_normalized": "1.13.3.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/postmark-approved-wordpress-plugin/",
+            "reference": "tags/1.13.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/postmark-approved-wordpress-plugin.1.13.3.zip"
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/postmark-approved-wordpress-plugin/"
+    },
+    {
+        "name": "wpackagist-plugin/redirection",
+        "version": "4.9.2",
+        "version_normalized": "4.9.2.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/redirection/",
+            "reference": "tags/4.9.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/redirection.4.9.2.zip"
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/redirection/"
+    },
+    {
+        "name": "wpackagist-plugin/wordpress-seo",
+        "version": "13.5",
+        "version_normalized": "13.5.0.0",
+        "source": {
+            "type": "svn",
+            "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+            "reference": "tags/13.5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://downloads.wordpress.org/plugin/wordpress-seo.13.5.zip"
+        },
+        "require": {
+            "composer/installers": "~1.0"
+        },
+        "type": "wordpress-plugin",
+        "installation-source": "dist",
+        "homepage": "https://wordpress.org/plugins/wordpress-seo/"
     }
 ]
