@@ -1,0 +1,50 @@
+/* breakpoints */
+// xs: 0    - 500
+// sm: 501  - 767
+// md: 768  - 1024
+// lg: 1025 +
+
+$breakpoints: (
+  "sm-up": (min-width: 501px),
+  "md-up": (min-width: 768px),
+  "lg-up": (min-width: 1025px),
+  "xs-down": (max-width: 500.98px),
+  "sm-down": (max-width: 768.98px),
+  "md-down": (max-width: 1024.98px),
+) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+@mixin breakpointOnly($breakpointMin, $breakpointMax) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpointMin) and map-has-key($breakpoints, $breakpointMax) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $breakpointMin))} and #{inspect(map-get($breakpoints, $breakpointMax))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from either `#{$breakpointMin}` or `#{$breakpointMax}`. "
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
