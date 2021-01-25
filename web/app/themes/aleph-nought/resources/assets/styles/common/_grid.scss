@@ -96,8 +96,8 @@ $breakpoints: (
   padding-left: $container-padding;
 
   @include breakpoint(md-down) {
-    padding-right: $container-padding-mobile;
-    padding-left: $container-padding-mobile;
+    padding-right: $container-padding-tablet;
+    padding-left: $container-padding-tablet;
   }
 
   @include breakpoint(sm-down) {
