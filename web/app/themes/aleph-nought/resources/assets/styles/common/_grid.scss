@@ -48,3 +48,41 @@ $breakpoints: (
       + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
+
+@mixin makeGrid($cols-d: 12, $cols-t: 9, $cols-m: 5) {
+  display: grid;
+  grid-template-columns: repeat($cols-d, 1fr);
+  row-gap: 0;
+  column-gap: $grid-gutter-width;
+
+  @include breakpoint(md-down) {
+    grid-template-columns: repeat($cols-t, 1fr);
+    column-gap: $grid-gutter-width-tablet;
+  }
+
+  @include breakpoint(sm-down) {
+    grid-template-columns: repeat($cols-m, 1fr);
+    column-gap: $grid-gutter-width-mobile;
+  }
+}
+
+@mixin makeFixedColTablet($colStart, $colEnd, $preserve: false) {
+  @include breakpoint(md-down) {
+    grid-column-start: $colStart;
+    grid-column-end: $colEnd;
+  }
+
+  @if (not $preserve) {
+    @include breakpoint(sm-down) {
+      grid-column-start: 1;
+      grid-column-end: 6;
+    }
+  }
+}
+
+@mixin makeFixedColMobile($colStart, $colEnd) {
+  @include breakpoint(sm-down) {
+    grid-column-start: $colStart;
+    grid-column-end: $colEnd;
+  }
+}
