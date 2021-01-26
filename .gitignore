@@ -25,3 +25,10 @@ web/.htaccess
 
 # WP-CLI
 wp-cli.local.yml
+
+# Node Package Manger
+node_modules
+npm-debug.log
+
+# Misc
+*.DS_Store
