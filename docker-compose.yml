@@ -1,0 +1,39 @@
+version: '3.2'
+services:
+  db:
+    image: mariadb:10.2.14
+    restart: always
+    ports:
+      - "3306"
+    networks:
+      - sql-dev
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - "./containers/mysql/initdb.d/:/docker-entrypoint-initdb.d/"
+      - "mysqldb:/var/lib/mysql"
+
+  wordpress:
+    image: $npm_package_name:latest
+    env_file:
+      - vars/development.env
+      # - secrets/development.secrets # uncomment me if you have runtime secrets on dev!
+    depends_on:
+      - db
+    networks:
+      - sql-dev
+    ports:
+      - "8080:80"
+    restart: always
+    volumes:
+      - "./uploads-dev:/var/www/html/web/app/uploads:cached"
+      - "./web:/var/www/html/web:cached"
+
+volumes:
+  mysqldb:
+networks:
+  sql-dev:
+    driver: bridge
