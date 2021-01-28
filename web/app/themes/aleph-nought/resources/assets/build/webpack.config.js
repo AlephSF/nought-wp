@@ -11,7 +11,7 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const desire = require('./util/desire');
 const config = require('./config');
 
-const assetsFilenames = (config.enabled.cacheBusting) ? config.cacheBusting : '[name]';
+const assetsHash = (config.enabled.cacheBusting) ? `?${config.cacheBusting}` : '';
 
 let webpackConfig = {
   context: config.paths.assets,
@@ -20,7 +20,7 @@ let webpackConfig = {
   output: {
     path: config.paths.dist,
     publicPath: config.publicPath,
-    filename: `scripts/${assetsFilenames}.js`,
+    filename: `scripts/[name].js${assetsHash}`,
   },
   stats: {
     hash: false,
@@ -105,7 +105,7 @@ let webpackConfig = {
         loader: 'url',
         options: {
           limit: 4096,
-          name: `[path]${assetsFilenames}.[ext]`,
+          name: `[path][name].[ext]${assetsHash}`,
         },
       },
       {
@@ -115,7 +115,7 @@ let webpackConfig = {
         options: {
           limit: 4096,
           outputPath: 'vendor/',
-          name: `${config.cacheBusting}.[ext]`,
+          name: `[name].[ext]${assetsHash}`,
         },
       },
     ],
@@ -145,11 +145,11 @@ let webpackConfig = {
      */
     new CopyGlobsPlugin({
       pattern: config.copy,
-      output: `[path]${assetsFilenames}.[ext]`,
+      output: `[path][name].[ext]${assetsHash}`,
       manifest: config.manifest,
     }),
     new ExtractTextPlugin({
-      filename: `styles/${assetsFilenames}.css`,
+      filename: `styles/[name].css${assetsHash}`,
       allChunks: true,
       disable: (config.enabled.watcher),
     }),
