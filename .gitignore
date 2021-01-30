@@ -26,9 +26,14 @@ web/.htaccess
 # WP-CLI
 wp-cli.local.yml
 
-# Node Package Manger
+# Nought
+uploads-dev/*
+!uploads-dev/.htaccess
 node_modules
 npm-debug.log
-
-# Misc
 *.DS_Store
+*.tar.gz
+containers/mysql/initdb.d/*
+!containers/mysql/initdb.d/.gitkeep
+dumps/*
+!dumps/.gitkeep
