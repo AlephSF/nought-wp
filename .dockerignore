@@ -32,9 +32,9 @@
 !web/site.webmanifest
 
 # Unignore theme, ignore some theme stuff
-!web/app/themes/test-foo
-web/app/themes/test-foo/node_modules
-web/app/themes/test-foo/dist
-web/app/themes/test-foo/vendor
+!web/app/themes/aleph-nought
+web/app/themes/aleph-nought/node_modules
+web/app/themes/aleph-nought/dist
+web/app/themes/aleph-nought/vendor
 
 # Specifically unignore any plugins here that are NOT managed by Composer
