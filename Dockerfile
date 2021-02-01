@@ -40,8 +40,8 @@ RUN npm install -g yarn
 
 WORKDIR /theme/deps-cache
 # using ${THEME_SLUG} in local path doesn't work on the following two COPY commands
-COPY web/app/themes/test-foo/package.json .
-COPY web/app/themes/test-foo/yarn.lock .
+COPY web/app/themes/aleph-nought/package.json .
+COPY web/app/themes/aleph-nought/yarn.lock .
 RUN /home/node/.npm-global/bin/yarn install
 
 WORKDIR /theme
@@ -50,7 +50,7 @@ RUN mv deps-cache/node_modules .
 RUN pwd && ls -al && cd deps-cache && ls -al
 
 # chaning WORKDIR to the theme passes this step but does this nest the theme one level deeper than desired?
-WORKDIR /theme/test-foo
+WORKDIR /theme/aleph-nought
 RUN yarn && yarn build:production
 
 FROM us.gcr.io/aleph-infra/docker-apache-php:v1.2.5
@@ -64,7 +64,7 @@ COPY --chown=www-data:www-data --from=builder /app/config ./config
 COPY --chown=www-data:www-data --from=builder /app/vendor ./vendor
 COPY --chown=www-data:www-data --from=builder /app/web ./web
 # theme-builder doesn't work if build arg ${THEME_SLUG} is used
-COPY --chown=www-data:www-data --from=theme-builder /theme/test-foo/dist/ ./web/app/themes/${THEME_SLUG}/dist/
+COPY --chown=www-data:www-data --from=theme-builder /theme/aleph-nought/dist/ ./web/app/themes/${THEME_SLUG}/dist/
 COPY --chown=www-data:www-data --from=builder /theme/${THEME_SLUG}/vendor/ ./web/app/themes/${THEME_SLUG}/vendor/
 COPY ./wp-cli.yml .
 
