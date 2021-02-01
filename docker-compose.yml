@@ -18,8 +18,16 @@ services:
 
   wordpress:
     image: $npm_package_name:latest
-    env_file:
-      - vars/development.env
+    environment:
+      WP_ENV: development
+      WP_HOME: /
+      WP_SITEURL: /wp
+      DB_NAME: wordpress
+      DB_USER: wordpress
+      DB_PASSWORD: wordpress
+      DB_HOST: db:3306
+    # env_file:
+      # - vars/development.env
       # - secrets/development.secrets # uncomment me if you have runtime secrets on dev!
     depends_on:
       - db
