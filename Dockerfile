@@ -47,7 +47,7 @@ RUN /home/node/.npm-global/bin/yarn install
 WORKDIR /theme
 COPY --from=builder /app/web/app/themes/${THEME_SLUG} .
 RUN mv deps-cache/node_modules .
-RUN pwd && ls -al && cd test-foo && ls -al
+RUN pwd && ls -al && cd deps-cache && ls -al
 
 # chaning WORKDIR to the theme passes this step but does this nest the theme one level deeper than desired?
 WORKDIR /theme/test-foo
@@ -55,7 +55,7 @@ RUN yarn && yarn build:production
 
 FROM us.gcr.io/aleph-infra/docker-apache-php:v1.2.5
 
-# WORKDIR /theme
+WORKDIR /theme
 # local file doesn't exist - unnecessary because using php from us.gcr.io?
 # COPY ./php/php-${PHP_ENV}.ini /usr/local/etc/php/conf.d/php-${PHP_ENV}.ini
 
@@ -63,9 +63,9 @@ WORKDIR /var/www/html
 COPY --chown=www-data:www-data --from=builder /app/config ./config
 COPY --chown=www-data:www-data --from=builder /app/vendor ./vendor
 COPY --chown=www-data:www-data --from=builder /app/web ./web
-RUN cd web/app/themes/test-foo && ls -al && pwd
-COPY --chown=www-data:www-data --from=theme-builder /theme/dist/ ./web/app/themes/test-foo/dist/
-COPY --chown=www-data:www-data --from=builder /theme/vendor/ ./web/app/themes/${THEME_SLUG}/vendor/
+# theme-builder doesn't work if build arg ${THEME_SLUG} is used
+COPY --chown=www-data:www-data --from=theme-builder /theme/test-foo/dist/ ./web/app/themes/${THEME_SLUG}/dist/
+COPY --chown=www-data:www-data --from=builder /theme/${THEME_SLUG}/vendor/ ./web/app/themes/${THEME_SLUG}/vendor/
 COPY ./wp-cli.yml .
 
 RUN mkdir /var/www/html/web/app/uploads && chown -R www-data:www-data /var/www/html/web
