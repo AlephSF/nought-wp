@@ -30,7 +30,8 @@ services:
     restart: always
     volumes:
       - "./uploads-dev:/var/www/html/web/app/uploads:cached"
-      - "./web:/var/www/html/web:cached"
+      - "./themes/$npm_package_config_themeSlug:/var/www/html/web/app/themes/$npm_package_config_themeSlug:cached" # the theme
+      # - "./mu-plugins/my-custom-plugin:/var/www/html/web/app/mu-plugins/my-custom-plugin:cached" # custom plugin example
 
 volumes:
   mysqldb:

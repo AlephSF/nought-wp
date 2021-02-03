@@ -69,3 +69,4 @@ class noughtwpCustomTypesTaxonomies {
 		
 		register_post_type( 'nought_custom', $args );
 	}
+}
