@@ -6,7 +6,7 @@ export default {
     
     // Mobile Nav
     const navWrap = $('.mobileNav_Wrap')[0];
-    $('.mobileMenuTOggle').on('click', () => {
+    $('.mobileMenuToggle').on('click', () => {
         $('body').addClass('mobile-nav-active')
         disableBodyScroll(navWrap)
     })
