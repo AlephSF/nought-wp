@@ -1,4 +1,9 @@
 <header class="siteHeader">
+  <div id="skipnav">
+    <p class="skipnav">
+      <a href="#mainContent">Skip to main content</a>
+    </p>
+  </div>
   <div class="siteHeader_Inner container">
     <button class="siteHeader_Button mobileMenuToggle">
       Hamburger here

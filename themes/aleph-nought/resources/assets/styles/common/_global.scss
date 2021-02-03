@@ -21,3 +21,28 @@ html {
 a {
   @include link();
 }
+
+#skipNav {
+  position: absolute;
+  width: 100%;
+
+  a {
+    display: block;
+    background: #fff;
+    padding: 16px;
+    position: absolute;
+    top: 0;
+    left: -999em;
+    z-index: 3;
+  
+    &:focus,
+    &:active {
+      top: 4px;
+      left: 4px;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
