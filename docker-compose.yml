@@ -18,9 +18,9 @@ services:
 
   wordpress:
     image: $npm_package_name:latest
-    env_file:
-      - vars/development.env
-      # - secrets/development.secrets # uncomment me if you have runtime secrets on dev!
+    environment:
+      WP_ENV: development
+      DB_HOST: db:3306
     depends_on:
       - db
     networks:
@@ -30,7 +30,8 @@ services:
     restart: always
     volumes:
       - "./uploads-dev:/var/www/html/web/app/uploads:cached"
-      - "./web:/var/www/html/web:cached"
+      - "./themes/$npm_package_config_themeSlug:/var/www/html/web/app/themes/$npm_package_config_themeSlug:cached" # the theme
+      # - "./mu-plugins/my-custom-plugin:/var/www/html/web/app/mu-plugins/my-custom-plugin:cached" # custom plugin example
 
 volumes:
   mysqldb:

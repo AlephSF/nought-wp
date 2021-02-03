@@ -1,34 +1,22 @@
 # Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
-!web/app/mu-plugins/nought-wp-custom
-!web/app/mu-plugins/vendor
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
-
-# WordPress
-web/wp
-web/.htaccess
-
-# Logs
-*.log
-
-# Dotenv
-.env
-.env.*
-!.env.example
+plugins/*
+!plugins/.gitkeep
+mu-plugins/*/
+!mu-plugins/nought-wp-custom
+!mu-plugins/vendor
 
 # Composer
-/vendor
+vendor
+!vendor/.gitkeep
 
-# WP-CLI
-wp-cli.local.yml
-
-# Node Package Manger
+# Nought
+uploads-dev/*
+!uploads-dev/.htaccess
 node_modules
 npm-debug.log
-
-# Misc
 *.DS_Store
+*.tar.gz
+containers/mysql/initdb.d/*
+!containers/mysql/initdb.d/.gitkeep
+dumps/*
+!dumps/.gitkeep

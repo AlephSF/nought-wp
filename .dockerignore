@@ -1,0 +1,8 @@
+# @see https://docs.docker.com/engine/reference/builder/#/dockerignore-file
+*
+!mu-plugins
+!php
+!plugins
+!themes
+!composer.json
+**/node_modules
