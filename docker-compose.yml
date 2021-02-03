@@ -20,11 +20,6 @@ services:
     image: $npm_package_name:latest
     environment:
       WP_ENV: development
-      WP_HOME: /
-      WP_SITEURL: /wp
-      DB_NAME: wordpress
-      DB_USER: wordpress
-      DB_PASSWORD: wordpress
       DB_HOST: db:3306
     depends_on:
       - db
