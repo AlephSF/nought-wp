@@ -1,4 +1,4 @@
-FROM us.gcr.io/aleph-infra/nought-wp-base-docker/main:v0.0.4 AS base
+FROM us.gcr.io/aleph-infra/nought-wp-base-docker/main:v0.0.5 AS base
 
 ARG THEME_SLUG=aleph-nought
 
@@ -9,16 +9,12 @@ WORKDIR /app/project
 COPY composer.json .
 
 WORKDIR /app
-RUN ls -al
 RUN composer update --lock
 
 WORKDIR /app/themes/${THEME_SLUG}/
 COPY themes/${THEME_SLUG}/composer.json .
 COPY themes/${THEME_SLUG}/composer.lock .
 RUN composer install --prefer-dist --no-progress --no-dev --optimize-autoloader --no-suggest
-
-WORKDIR /app
-RUN ls -al
 
 
 FROM node:12.16.1 AS theme-builder
@@ -29,7 +25,6 @@ WORKDIR /theme
 COPY themes/${THEME_SLUG}/ .
 RUN ls -al
 RUN yarn && yarn build:production
-
 
 
 FROM us.gcr.io/aleph-infra/docker-apache-php:v1.2.5
