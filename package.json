@@ -1,0 +1,27 @@
+{
+  "name": "nought-wp",
+  "version": "0.0.1",
+  "description": "Aleph Nought WordPress Boilerplate",
+  "config": {
+    "dbBucketName": "alephsf-db-bak",
+    "dbProdInstanceName": "mysql--production",
+    "dbSandboxInstanceName": "mysql--sandbox",
+    "gcpProjectName": "aleph-infra"
+  },
+  "scripts": {
+    "build": "docker build --build-arg ACF_PRO_KEY=$(gcloud secrets versions access --secret=\"acf_pro_key\" latest) -t $npm_package_name .",
+    "nds": "nds"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlephSF/nought-wp.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlephSF/nought-wp/issues"
+  },
+  "homepage": "https://github.com/AlephSF/nought-wp#readme",
+  "devDependencies": {
+    "@aleph/nought-dev-scripts": "0.0.8"
+  }
+}

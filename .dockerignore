@@ -1,0 +1,40 @@
+# @see https://docs.docker.com/engine/reference/builder/#/dockerignore-file
+*
+!config
+!scripts
+!secrets
+!vars
+!php
+!web/.htaccess
+!web/index.php
+!web/ready.php
+!web/wp-config.php
+!vendor/.gitkeep
+# !web/app/uploads/.gitkeep
+!web/app/plugins/.gitkeep
+!web/app/mu-plugins
+!composer.json
+!composer.lock
+!wp-cli.yml
+!web/android-chrome-192x192.png
+!web/android-chrome-512x512.png
+!web/apple-touch-icon.png
+!web/browserconfig.xml
+!web/favicon-16x16.png
+!web/favicon-32x32.png
+!web/favicon.ico
+!web/mstile-70x70.png
+!web/mstile-144x144.png
+!web/mstile-150x150.png
+!web/mstile-310x150.png
+!web/mstile-310x310.png
+!web/safari-pinned-tab.svg
+!web/site.webmanifest
+
+# Unignore theme, ignore some theme stuff
+!web/app/themes/aleph-nought
+web/app/themes/aleph-nought/node_modules
+web/app/themes/aleph-nought/dist
+web/app/themes/aleph-nought/vendor
+
+# Specifically unignore any plugins here that are NOT managed by Composer

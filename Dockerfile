@@ -2,6 +2,8 @@ FROM composer:1.8.6 AS builder
 
 # Must be passed with --build-arg or builds will fail!
 ARG ACF_PRO_KEY
+ARG PHP_ENV=production
+ARG THEME_SLUG=aleph-nought
 
 WORKDIR /tmp/composer-cache
 COPY ./composer.json .
@@ -11,8 +13,8 @@ RUN composer install --prefer-dist --no-progress --no-dev --optimize-autoloader 
 
 # Separate process for Sage theme
 WORKDIR /tmp/theme-composer-cache
-COPY web/app/themes/aleph-nought/composer.json .
-COPY web/app/themes/aleph-nought/composer.lock .
+COPY web/app/themes/${THEME_SLUG}/composer.json .
+COPY web/app/themes/${THEME_SLUG}/composer.lock .
 RUN composer install --prefer-dist --no-progress --no-dev --optimize-autoloader --no-suggest
 
 WORKDIR /app
@@ -37,26 +39,33 @@ ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
 RUN npm install -g yarn
 
 WORKDIR /theme/deps-cache
+# using ${THEME_SLUG} in local path doesn't work on the following two COPY commands
 COPY web/app/themes/aleph-nought/package.json .
 COPY web/app/themes/aleph-nought/yarn.lock .
 RUN /home/node/.npm-global/bin/yarn install
 
 WORKDIR /theme
-COPY --from=builder /app/web/app/themes/aleph-nought .
+COPY --from=builder /app/web/app/themes/${THEME_SLUG} .
 RUN mv deps-cache/node_modules .
-RUN yarn build:production
+RUN pwd && ls -al && cd deps-cache && ls -al
+
+# chaning WORKDIR to the theme passes this step but does this nest the theme one level deeper than desired?
+WORKDIR /theme/aleph-nought
+RUN yarn && yarn build:production
 
 FROM us.gcr.io/aleph-infra/docker-apache-php:v1.2.5
 
-ARG PHP_ENV=production
-COPY ./php/php-${PHP_ENV}.ini /usr/local/etc/php/conf.d/php-${PHP_ENV}.ini
+WORKDIR /theme
+# local file doesn't exist - unnecessary because using php from us.gcr.io?
+# COPY ./php/php-${PHP_ENV}.ini /usr/local/etc/php/conf.d/php-${PHP_ENV}.ini
 
 WORKDIR /var/www/html
 COPY --chown=www-data:www-data --from=builder /app/config ./config
 COPY --chown=www-data:www-data --from=builder /app/vendor ./vendor
 COPY --chown=www-data:www-data --from=builder /app/web ./web
-COPY --chown=www-data:www-data --from=theme-builder /theme/dist/ ./web/app/themes/aleph-nought/dist/
-COPY --chown=www-data:www-data --from=builder /theme/vendor/ ./web/app/themes/aleph-nought/vendor/
+# theme-builder doesn't work if build arg ${THEME_SLUG} is used
+COPY --chown=www-data:www-data --from=theme-builder /theme/aleph-nought/dist/ ./web/app/themes/${THEME_SLUG}/dist/
+COPY --chown=www-data:www-data --from=builder /theme/${THEME_SLUG}/vendor/ ./web/app/themes/${THEME_SLUG}/vendor/
 COPY ./wp-cli.yml .
 
 RUN mkdir /var/www/html/web/app/uploads && chown -R www-data:www-data /var/www/html/web
