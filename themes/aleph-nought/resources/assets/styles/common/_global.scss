@@ -17,3 +17,7 @@ html {
 .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
 }
+
+a {
+  @include link();
+}

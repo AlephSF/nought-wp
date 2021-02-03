@@ -12,9 +12,10 @@
 // @import "~some-node-module";
 
 /** Import theme styles */
+@import "common/colors";
+@import "common/mixins";
 @import "common/global";
 @import "common/grid";
-@import "common/colors";
 @import "components/buttons";
 @import "components/comments";
 @import "components/forms";
