@@ -9,6 +9,7 @@
     "gcpProjectName": "aleph-infra"
   },
   "scripts": {
+    "build": "docker build --build-arg ACF_PRO_KEY=$(gcloud secrets versions access --secret=\"acf_pro_key\" latest) -t $npm_package_name .",
     "nds": "nds"
   },
   "repository": {
