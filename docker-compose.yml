@@ -26,9 +26,6 @@ services:
       DB_USER: wordpress
       DB_PASSWORD: wordpress
       DB_HOST: db:3306
-    # env_file:
-      # - vars/development.env
-      # - secrets/development.secrets # uncomment me if you have runtime secrets on dev!
     depends_on:
       - db
     networks:
