@@ -10,7 +10,7 @@
     "gcpProjectName": "aleph-infra"
   },
   "scripts": {
-    "build": "docker build -t $npm_package_name .",
+    "build": "docker build --build-arg PHP_ENV=dev -t $npm_package_name .",
     "nds": "nds"
   },
   "repository": {
