@@ -5,7 +5,7 @@
     </p>
   </div>
   <div class="siteHeader_Inner container">
-    <button class="siteHeader_Button mobileMenuToggle">
+    <button class="siteHeader_Button mobileMenuToggle" aria-label="Main Navigation toggle" aria-expanded="false">
       Hamburger here
     </button>
   <a class="brand" href="{{ home_url('/') }}" aria-label="{{ get_bloginfo('name', 'display') }}">

@@ -13,13 +13,14 @@ export default function mobileMenuInteractions () {
       }, 60
     )
     disableBodyScroll(navWrap)
+    mobileToggle.attr('aria-expanded', 'true')
     $('#menu-mobile-navigation li a:first').focus()
   }
   
   function closeMobileMenu () {
     $('body').removeClass('mobile-nav-active')
     enableBodyScroll(navWrap)
-    mobileToggle.focus()
+    mobileToggle.focus().attr('aria-expanded', 'false')
     setTimeout(() => {
       $('.mobileNav_Wrap').toggleClass('mobileNav_Wrap__hidden')
       }, 600
