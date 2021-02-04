@@ -7,7 +7,11 @@ export default function mobileMenuInteractions () {
   const lastMenuElement = $('#menu-mobile-navigation li a:last')
 
   function openMobileMenu () {
-    $('body').addClass('mobile-nav-active')
+    $('.mobileNav_Wrap').toggleClass('mobileNav_Wrap__hidden')
+    setTimeout(() => {
+      $('body').addClass('mobile-nav-active')
+      }, 60
+    )
     disableBodyScroll(navWrap)
     $('#menu-mobile-navigation li a:first').focus()
   }
@@ -16,6 +20,10 @@ export default function mobileMenuInteractions () {
     $('body').removeClass('mobile-nav-active')
     enableBodyScroll(navWrap)
     mobileToggle.focus()
+    setTimeout(() => {
+      $('.mobileNav_Wrap').toggleClass('mobileNav_Wrap__hidden')
+      }, 600
+    )
   }
   
   $('.mobileMenuToggle').on('click', () => {

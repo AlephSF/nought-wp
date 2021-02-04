@@ -1,5 +1,5 @@
 @if (has_nav_menu('mobile_navigation'))
-  <div class="mobileNav_Wrap">
+  <div class="mobileNav_Wrap mobileNav_Wrap__hidden">
     <nav class="mobileNav">
       <button class="mobileNav_Close">
         Menu

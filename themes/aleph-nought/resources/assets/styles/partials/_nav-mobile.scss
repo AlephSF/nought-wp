@@ -14,6 +14,10 @@
     transform: translateX(-100%);
     transition: transform 230ms ease-out 50ms;
 
+    &__hidden {
+      display: none;
+    }
+
     .mobile-nav-active & {
       transform: translateX(0);
       transition: transform 230ms ease-out 50ms;
