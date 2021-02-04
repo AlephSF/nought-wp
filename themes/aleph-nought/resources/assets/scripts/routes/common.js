@@ -6,14 +6,23 @@ export default {
     
     // Mobile Nav
     const navWrap = $('.mobileNav_Wrap')[0];
+
+    function openMobileMenu () {
+      $('body').addClass('mobile-nav-active')
+      disableBodyScroll(navWrap)
+    }
+
+    function closeMobileMenu () {
+      $('body').removeClass('mobile-nav-active')
+      enableBodyScroll(navWrap)
+    }
+
     $('.mobileMenuToggle').on('click', () => {
-        $('body').addClass('mobile-nav-active')
-        disableBodyScroll(navWrap)
+      openMobileMenu()
     })
 
     $('.mobileNav_Close').on('click', () => {
-        $('body').removeClass('mobile-nav-active')
-        enableBodyScroll(navWrap)
+      closeMobileMenu()
     })
   },
   finalize() {
