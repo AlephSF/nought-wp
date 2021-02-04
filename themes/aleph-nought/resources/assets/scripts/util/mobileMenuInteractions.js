@@ -6,6 +6,7 @@ export default function mobileMenuInteractions () {
   function openMobileMenu () {
     $('body').addClass('mobile-nav-active')
     disableBodyScroll(navWrap)
+    $('#menu-mobile-navigation li a:first').focus()
   }
   
   function closeMobileMenu () {
