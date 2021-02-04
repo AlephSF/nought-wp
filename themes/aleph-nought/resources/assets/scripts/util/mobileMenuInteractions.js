@@ -2,6 +2,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default function mobileMenuInteractions () {
   const navWrap = $('.mobileNav_Wrap')[0];
+  const mobileToggle = $('.mobileMenuToggle')
 
   function openMobileMenu () {
     $('body').addClass('mobile-nav-active')
@@ -12,6 +13,7 @@ export default function mobileMenuInteractions () {
   function closeMobileMenu () {
     $('body').removeClass('mobile-nav-active')
     enableBodyScroll(navWrap)
+    mobileToggle.focus()
   }
   
   $('.mobileMenuToggle').on('click', () => {
