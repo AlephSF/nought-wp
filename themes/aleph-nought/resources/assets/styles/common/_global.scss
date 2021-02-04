@@ -24,7 +24,7 @@ a {
 
 #skipNav {
   position: absolute;
-  width: 100%;
+  width: auto;
 
   a {
     display: block;
@@ -33,12 +33,13 @@ a {
     position: absolute;
     top: 0;
     left: -999em;
-    z-index: 3;
+    z-index: -3;
 
     &:focus,
     &:active {
       top: 4px;
       left: 4px;
+      z-index: 3;
     }
   }
 
