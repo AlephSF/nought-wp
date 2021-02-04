@@ -3,6 +3,8 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 export default function mobileMenuInteractions () {
   const navWrap = $('.mobileNav_Wrap')[0];
   const mobileToggle = $('.mobileMenuToggle')
+  const mobileNavClose = $('.mobileNav_Close')
+  const lastMenuElement = $('#menu-mobile-navigation li a:last')
 
   function openMobileMenu () {
     $('body').addClass('mobile-nav-active')
@@ -29,6 +31,21 @@ export default function mobileMenuInteractions () {
       if (e.key === 'Escape' || e.keyCode === 'Esc') {
         closeMobileMenu()
       }
+    }
+  })
+
+  // trap focus
+  mobileNavClose.on('keydown', (e) => {
+    if (e.shiftKey && e.keyCode === 9) {
+      e.preventDefault()
+      lastMenuElement.focus()
+    }
+  })
+
+  lastMenuElement.on('keydown', (e) => {
+    if (e.keyCode === 9 && !(e.shiftKey && e.keyCode === 9)) {
+      e.preventDefault()
+      mobileNavClose.focus()
     }
   })
 }
