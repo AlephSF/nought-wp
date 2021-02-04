@@ -22,6 +22,12 @@ a {
   @include link();
 }
 
+nav {
+  ul {
+    list-style-type: none;
+  }
+}
+
 #skipNav {
   position: absolute;
   width: auto;
