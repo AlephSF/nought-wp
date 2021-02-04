@@ -1,6 +1,6 @@
 <header class="siteHeader">
-  <div id="skipnav">
-    <p class="skipnav">
+  <div id="skipNav">
+    <p class="skipNav_Text">
       <a href="#mainContent">Skip to main content</a>
     </p>
   </div>
