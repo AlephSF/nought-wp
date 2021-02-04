@@ -20,4 +20,12 @@ export default function mobileMenuInteractions () {
   $('.mobileNav_Close').on('click', () => {
     closeMobileMenu()
   })
+
+  $(document).on('keydown', (e) => {
+    if ($('body').hasClass('mobile-nav-active')) {
+      if (e.key === 'Escape' || e.keyCode === 'Esc') {
+        closeMobileMenu()
+      }
+    }
+  })
 }
