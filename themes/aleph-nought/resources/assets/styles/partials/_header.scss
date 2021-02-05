@@ -1,5 +1,15 @@
 .siteHeader {
   &_Button {
     cursor: pointer;
+
+    @include breakpoint(md-up) {
+      display: none;
+    }
+  }
+
+  .nav-primary {
+    @include breakpoint(sm-down) {
+      display: none;
+    }
   }
 }
