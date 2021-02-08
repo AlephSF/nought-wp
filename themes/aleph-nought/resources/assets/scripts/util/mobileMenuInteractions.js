@@ -2,6 +2,7 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 export default function mobileMenuInteractions () {
   const navWrap = $('.mobileNav_Wrap')[0];
+  const mobileNav = $('.mobileNav')
   const mobileToggle = $('.mobileMenuToggle')
   const mobileNavClose = $('.mobileNav_Close')
   const lastMenuElement = $('#menu-mobile-navigation li a:last')
@@ -14,6 +15,7 @@ export default function mobileMenuInteractions () {
     )
     disableBodyScroll(navWrap)
     mobileToggle.attr('aria-expanded', 'true')
+    mobileNav.attr('aria-hidden', 'false')
     $('#menu-mobile-navigation li a:first').focus()
   }
   
@@ -25,6 +27,7 @@ export default function mobileMenuInteractions () {
       $('.mobileNav_Wrap').toggleClass('mobileNav_Wrap__hidden')
       }, 600
     )
+    mobileNav.attr('aria-hidden', 'true')
   }
   
   $('.mobileMenuToggle').on('click', () => {
