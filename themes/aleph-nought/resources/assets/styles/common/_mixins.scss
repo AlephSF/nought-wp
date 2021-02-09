@@ -1,0 +1,22 @@
+@mixin link () {
+  &:visited {
+    color: gray;
+  }
+
+  &:hover,
+  &:focus {
+    color: $black;
+  }
+}
+
+@mixin sr-only () {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
