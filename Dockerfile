@@ -23,7 +23,6 @@ ARG THEME_SLUG=aleph-nought
 
 WORKDIR /theme
 COPY themes/${THEME_SLUG}/ .
-RUN ls -al
 RUN yarn && yarn build:production
 
 
@@ -51,5 +50,4 @@ COPY --chown=www-data:www-data --from=theme-builder /theme/dist/ ./web/app/theme
 
 # RUN mkdir /var/www/html/web/app/uploads && chown -R www-data:www-data /var/www/html/web
 RUN chown -R www-data:www-data /var/www/html/web
-RUN cd web && ls -al
 VOLUME /var/www/html/web/app/uploads
