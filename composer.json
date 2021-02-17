@@ -15,6 +15,5 @@
         }
     ],
     "require": {
-        "wpackagist-plugin/hello-beautiful":"1.1"
     }
 }
