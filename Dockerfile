@@ -3,7 +3,7 @@ FROM gcr.io/aleph-infra/nought-wp-base-docker/main:v0.0.10 AS base
 ARG THEME_SLUG=aleph-nought
 
 # This must be included manually per-project. This is where you include any MU custom plugins
-COPY mu-plugins/nought-wp-custom /app/web/app/mu-plugins
+COPY mu-plugins/nought-wp-custom /app/web/app/mu-plugins/nought-wp-custom
 
 WORKDIR /app/project
 COPY composer.json .
