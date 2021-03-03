@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'docker pull gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:latest || exit 0']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--build-arg', 'THEME_SLUG=$_THEME_SLUG', '--build-arg', 'BUILDKIT_INLINE_CACHE=1', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:$_TAG_NAME', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:latest', '.', '--cache-from', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:latest']
+  env:
+  - 'DOCKER_BUILDKIT=1'
+images: ['gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:$_TAG_NAME', 'gcr.io/$PROJECT_ID/$REPO_NAME/$_BRANCH_NAME:latest']
+substitutions:
+  _BRANCH_NAME: ${BRANCH_NAME:-main}
+  _TAG_NAME: ${TAG_NAME:-$SHORT_SHA}
+  _THEME_SLUG: aleph-nought
