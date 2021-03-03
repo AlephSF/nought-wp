@@ -1,4 +1,4 @@
-FROM gcr.io/aleph-infra/nought-wp-base-docker/main:v0.0.10 AS base
+FROM gcr.io/aleph-infra/nought-wp-base-docker/main:v0.0.11 AS base
 
 ARG THEME_SLUG=aleph-nought
 
